@@ -1,0 +1,7 @@
+name: MistScriptBlock
+version: ${project.version}
+main: github.nyasroryo.mistscriptblock.Main
+prefix: d
+authors: [d]
+description: d
+website: d

@@ -45,3 +45,6 @@ hs_err_pid*
 *.iml
 out
 gen
+src/main/java/github/nyasroryo/mistscriptblock/extension/
+src/main/java/github/nyasroryo/mistscriptblock/listener/
+src/test/
