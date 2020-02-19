@@ -1,17 +1,15 @@
 package github.nyasroryo.mistscriptblock.script;
 
-import java.util.Objects;
-
-public class ScriptValueString implements ScriptValue<String> {
+public class ScriptValueInteger implements ScriptValue<Long> {
   
-  private final String value;
+  private final long value;
   
-  public ScriptValueString(String value) {
+  public ScriptValueInteger(long value) {
     this.value = value;
   }
   
   @Override
-  public String getValue() {
+  public Long getValue() {
     return value;
   }
   
@@ -20,20 +18,20 @@ public class ScriptValueString implements ScriptValue<String> {
     if (this == o) {
       return true;
     }
-    if (!(o instanceof ScriptValueString)) {
+    if (!(o instanceof ScriptValueInteger)) {
       return false;
     }
-    return value.equals(((ScriptValueString) o).value);
+    return value == ((ScriptValueInteger) o).value;
   }
   
   @Override
   public int hashCode() {
-    return value.hashCode();
+    return Long.hashCode(value);
   }
   
   @Override
   public String toString() {
-    return value;
+    return Long.toString(value);
   }
   
 }

@@ -13,7 +13,7 @@ import com.google.common.hash.*;
  * 为了实现是否是脚本方块的快速判定，本插件使用数组来实现快速调取，位置
  *
  */
-public class MurmurHash {
+class MurmurHash {
   
   /**
    * 种子是去 random.org 生成的真随机数

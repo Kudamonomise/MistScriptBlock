@@ -1,17 +1,15 @@
 package github.nyasroryo.mistscriptblock.script;
 
-import java.util.Objects;
-
-public class ScriptValueString implements ScriptValue<String> {
+public class ScriptValueFloat implements ScriptValue<Double> {
   
-  private final String value;
+  private final double value;
   
-  public ScriptValueString(String value) {
+  public ScriptValueFloat(double value) {
     this.value = value;
   }
   
   @Override
-  public String getValue() {
+  public Double getValue() {
     return value;
   }
   
@@ -20,20 +18,20 @@ public class ScriptValueString implements ScriptValue<String> {
     if (this == o) {
       return true;
     }
-    if (!(o instanceof ScriptValueString)) {
+    if (!(o instanceof ScriptValueFloat)) {
       return false;
     }
-    return value.equals(((ScriptValueString) o).value);
+    return value == ((ScriptValueFloat) o).value;
   }
   
   @Override
   public int hashCode() {
-    return value.hashCode();
+    return Double.hashCode(value);
   }
   
   @Override
   public String toString() {
-    return value;
+    return Double.toString(value);
   }
   
 }
