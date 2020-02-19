@@ -1,0 +1,7 @@
+scripts:
+  #示范脚本
+  - name: "example"
+    # 脚本
+    script:
+      # 使玩家以op身份执行命令 '/say hello, world!'
+      - "@cmdop<-'say hello, world!'"

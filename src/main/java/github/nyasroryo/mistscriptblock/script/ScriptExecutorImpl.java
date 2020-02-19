@@ -41,6 +41,9 @@ public class ScriptExecutorImpl {
     server.dispatchCommand(server.getConsoleSender(), env.interpreter.getArgs(1)[0].toString());
   };
   
+  /**
+   * 向解释器的数据栈发送一条
+   */
   public static final class PUSH extends ScriptExecutorWithArg{
     public PUSH(ScriptValue<?> arg) {
       super(arg);

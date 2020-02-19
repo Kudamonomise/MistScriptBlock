@@ -5,12 +5,16 @@ import java.util.*;
 import static github.nyasroryo.mistscriptblock.script.ScriptExecutorImpl.*;
 
 /**
+ * @author NyasRoryo
  * 编译文本形式的脚本到短码，来加速运行
  */
 public class ScriptCompiler {
   
   private static HashMap<String, ScriptExecutor> EXECUTORS = new HashMap<String, ScriptExecutor>(){{
     put("nope", NOPE);
+    put("cmd", COMMAND);
+    put("cmdop", COMMAND_OP);
+    put("cmdconsole", COMMAND_CONSOLE);
   }};
   
   public static void registerExecutor(String name, ScriptExecutor executor){
@@ -18,7 +22,7 @@ public class ScriptCompiler {
   }
   
   
-  public ScriptExecutor[] compile(String[] source) {
+  public static ScriptExecutor[] compile(String[] source) {
     ArrayList<ScriptExecutor> result = new ArrayList<>();
     for(String s : source){
       LinkedList<ScriptExecutor> cache = new LinkedList<>();
@@ -34,24 +38,23 @@ public class ScriptCompiler {
   /**
    * String -> regex: ^\'.*\'$
    * Long -> regex: ^[0-9]+$
-   * Double -> regex: ^[0-9]+{\.[0-9]*}?$
+   * Double -> regex: ^[0-9]+(\.[0-9]*)?$
    */
   private static ScriptExecutor compileOne(String s){
     if(s == null || s.isEmpty()){
       return NOPE;
     }
     
-    ScriptExecutor result;
-    
-    if((result = EXECUTORS.get(s)) != null){
-      return result;
+    // 这个函数必须前缀@只是为了视觉清晰而作出的规定
+    if(s.startsWith("@")){
+      return EXECUTORS.get(s.substring(1).toLowerCase());
     }
     
      if(s.matches("^'.*'$")){
        return new PUSH(new ScriptValueString(s.substring(1, s.length() - 1)));
      } else if(s.matches("^[0-9]+$")){
        return new PUSH(new ScriptValueInteger(Long.parseLong(s)));
-     } else if(s.matches("^[0-9]+{\\.[0-9]*}?$")){
+     } else if(s.matches("^[0-9]+(\\.[0-9]*)?$")){
        return new PUSH(new ScriptValueFloat(Double.parseDouble(s)));
      }
     

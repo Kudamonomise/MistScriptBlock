@@ -43,7 +43,7 @@ public class ScriptInterpreter implements Runnable {
   
   @Override
   public void run() {
-    while(lineNumber < scripts.length){
+    while(++lineNumber < scripts.length){
       try {
         scripts[lineNumber - 1].execute(env);
       } catch (Exception e){
@@ -77,8 +77,12 @@ public class ScriptInterpreter implements Runnable {
     return result;
   }
   
-  public void increaseLineNumber(int count){
+  public void addLineNumber(int count){
     lineNumber += count;
+  }
+  
+  public void setLineNumber(int count){
+    lineNumber = count;
   }
   
 }
