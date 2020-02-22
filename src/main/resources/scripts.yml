@@ -5,3 +5,12 @@ scripts:
     script:
       # 使玩家以op身份执行命令 '/say hello, world!'
       - "@cmdop<-'say hello, world!'"
+
+  - name: "goToSpawn"
+    script:
+      - "@cmd<-'spawn'"
+
+  - name: "suicide"
+    script:
+      - "@cmd<-'suicide'"
+
