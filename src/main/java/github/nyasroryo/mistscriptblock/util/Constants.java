@@ -14,6 +14,8 @@ import java.util.logging.Logger;
  */
 public class Constants {
   
+  public static boolean debugMode = true;
+  
   public static Main instance;
   public static Logger logger;
   public static Server server;

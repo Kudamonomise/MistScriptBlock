@@ -24,6 +24,9 @@ public class ShortCodeStdImpls {
     server.dispatchCommand(server.getConsoleSender(), env.stack.pop().toString());
   };
   
+  /**
+   * 一种带参数的，可以参考
+   */
   public static final class PUSH implements ShortCodeWithArg{
     
     private final MistValue<?> val;

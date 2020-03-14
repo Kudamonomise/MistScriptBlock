@@ -1,9 +1,5 @@
 # 不要在运行中更改！
 # 这个文件的一切内容在存储时将会被游戏内的内容覆盖
 blocks:
-  - world: "world"
-    x: 0
-    y: 0
-    z: 0
-    type: LEFT_CLICK
+  - uniqueLocId: 6205343682045721112
     script: "goToSpawn"

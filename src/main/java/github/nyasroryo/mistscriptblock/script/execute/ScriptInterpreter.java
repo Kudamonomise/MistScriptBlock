@@ -4,6 +4,8 @@ import github.nyasroryo.mistscriptblock.script.datastruct.*;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 
+import java.util.Arrays;
+
 public class ScriptInterpreter implements Runnable {
   
   private final ScriptRuntime runtime;

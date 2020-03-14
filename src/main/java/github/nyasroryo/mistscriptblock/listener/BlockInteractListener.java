@@ -5,17 +5,29 @@ import github.nyasroryo.mistscriptblock.script.execute.ScriptTrigger;
 import org.bukkit.event.*;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.player.*;
+import org.bukkit.inventory.EquipmentSlot;
 
 public class BlockInteractListener implements Listener {
+  
+  public static final int LEFT_CLICK = 0;
+  public static final int RIGHT_CLICK = 1;
+  public static final int WALK = 2;
+  public static final int BREAK = 3;
   
   @EventHandler(priority = EventPriority.LOWEST)
   public void onInteract(PlayerInteractEvent e) {
     switch(e.getAction()) {
       case LEFT_CLICK_BLOCK:
-        ScriptTrigger.trigger(TriggerType.LEFT_CLICK, e.getPlayer());
+        if(e.getHand() != EquipmentSlot.HAND) {
+          return;
+        }
+        ScriptTrigger.trigger(LEFT_CLICK, e.getClickedBlock().getLocation(), e.getPlayer());
         break;
       case RIGHT_CLICK_BLOCK:
-        ScriptTrigger.trigger(TriggerType.RIGHT_CLICK, e.getPlayer());
+        if(e.getHand() != EquipmentSlot.HAND) {
+          return;
+        }
+        ScriptTrigger.trigger(RIGHT_CLICK, e.getClickedBlock().getLocation(), e.getPlayer());
         break;
       default:
     }
@@ -23,12 +35,12 @@ public class BlockInteractListener implements Listener {
   
   @EventHandler(priority = EventPriority.LOWEST)
   public void onWalk(PlayerMoveEvent e) {
-    ScriptTrigger.trigger(TriggerType.WALK, e.getPlayer());
+    ScriptTrigger.trigger(WALK, e.getTo(), e.getPlayer());
   }
   
   @EventHandler(priority = EventPriority.LOWEST)
   public void onBreak(BlockBreakEvent e) {
-    ScriptTrigger.trigger(TriggerType.BREAK, e.getPlayer());
+    ScriptTrigger.trigger(BREAK, e.getBlock().getLocation(), e.getPlayer());
   }
   
 }

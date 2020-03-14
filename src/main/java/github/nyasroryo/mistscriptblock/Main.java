@@ -1,6 +1,7 @@
 package github.nyasroryo.mistscriptblock;
 
 import github.nyasroryo.mistscriptblock.listener.ListenerRegister;
+import github.nyasroryo.mistscriptblock.script.file.Config;
 import github.nyasroryo.mistscriptblock.util.Constants;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -22,6 +23,7 @@ public final class Main extends JavaPlugin {
   public static void reload(){
     Constants.init(instance);
     ListenerRegister.registerAll();
+    Config.load();
   }
   
 }
