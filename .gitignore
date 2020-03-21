@@ -46,3 +46,8 @@ hs_err_pid*
 out
 gen
 src/test/
+
+# eclipse
+.settings
+.project
+.classpath
