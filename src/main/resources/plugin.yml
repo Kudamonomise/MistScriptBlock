@@ -1,7 +1,11 @@
-name: MistScriptBlock
-version: 0.0.1
-main: github.nyasroryo.mistscriptblock.Main
-prefix: d
-authors: [d]
-description: d
-website: d
+name: "MistScriptBlock"
+version: ${project.version}
+main: "net.mistyfield.msb.Main"
+prefix: "MistScriptBlock"
+author: "MistyField DevTeam"
+description: "the most powerful script block plugin"
+website: ${project.url}
+command:
+  msb:
+    usage: "/msb <args>"
+    description: "MistScriptBlock command"

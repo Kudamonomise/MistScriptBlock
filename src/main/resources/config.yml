@@ -1,0 +1,10 @@
+# MistScriptBlock 配置文件
+
+# 目前内置的语言文件: zh_CN, en_US
+# 你可以复制 ./message/zh_CN.yml, 改名为语言名称，并在这里使用
+# 如果你有翻译, 并想造福大众, 可以在github上给我发pr或者issue
+lang: "zh_CN"
+
+
+
+

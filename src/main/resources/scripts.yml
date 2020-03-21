@@ -1,16 +1,14 @@
 scripts:
-  #示范脚本
-  - name: "example"
-    # 脚本
-    script:
-      # 使玩家以op身份执行命令 '/say hello, world!'
-      - "@cmdop<-'say hello, world!'"
+  # 示例脚本组
+  # 脚本组的名字
+  example:
+    # 脚本组的内容, 一个字符串列表
+    # 使玩家以op身份执行命令 '/say hello, world!'
+    - "@cmdop<-'say hello, world!'"
+    - "@cmdcon<-'kick %player%'"
 
-  - name: "goToSpawn"
-    script:
-      - "@cmd<-'spawn'"
+  goToSpawn:
+    - "@cmd<-'spawn'"
 
-  - name: "suicide"
-    script:
-      - "@cmd<-'suicide'"
-
+  suicide:
+    - "@cmd<-'suicide'"
